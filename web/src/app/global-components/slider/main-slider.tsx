@@ -7,7 +7,6 @@ import { useState } from "react";
 function MainSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
 
-
   const handlePrevSlide = () => {
     setCurrentSlide((prevSlide) => (prevSlide === 0 ? 1 : prevSlide - 1));
   };
@@ -22,10 +21,10 @@ function MainSlider() {
   return (
     <div
       id="default-carousel"
-      className="relative w-full transition duration-500"
+      className="relative w-full transition duration-500 "
       data-carousel="slide"
     >
-      <div className="relative h-full overflow-hidden rounded-lg md:h-96 ">
+      <div className="relative h-screen overflow-hidden rounded-lg ">
         <div
           className={`duration-700 ease-in-out   ${currentSlide === 0 ? "opacity-1" : "opacity-0"}`}
           data-carousel-item
