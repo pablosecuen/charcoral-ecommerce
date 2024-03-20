@@ -2,7 +2,7 @@ import BannerHistoria from "./global-components/banner/banner-historia";
 import ProductsCarousel from "./global-components/carousel/products-carousel";
 import MainSlider from "./global-components/slider/main-slider";
 import BannerBricketas from "./global-components/banner/banner-bricketas";
-import BannerSponsor from "./global-components/banner/banner-sponsor";
+
 
 export default function Home() {
   return (
@@ -14,7 +14,7 @@ export default function Home() {
       <ProductsCarousel />
       <BannerHistoria />
       <BannerBricketas />
-      <BannerSponsor />
+
     </main>
   );
 }
