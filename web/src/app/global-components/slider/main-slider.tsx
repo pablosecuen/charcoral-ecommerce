@@ -1,8 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
-import svg from "@../../../public/vercel.svg";
+import { mainSliderArr } from "../data";
 import Image from "next/image";
 import { useState } from "react";
+import Link from "next/link";
 
 function MainSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -21,39 +22,43 @@ function MainSlider() {
   return (
     <div
       id="default-carousel"
-      className="relative w-full transition duration-500 "
+      className="relative w-full transition duration-500 animate-fadeIn"
       data-carousel="slide"
     >
       <div className="relative h-screen overflow-hidden rounded-lg ">
-        <div
-          className={`duration-700 ease-in-out   ${currentSlide === 0 ? "opacity-1" : "opacity-0"}`}
-          data-carousel-item
-        >
-          <Image
-            src={svg}
-            className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 "
-            width={0}
-            height={0}
-            alt="imagen 1"
-          />
-        </div>
-
-        <div
-          className={`duration-700 ease-in-out ${currentSlide === 1 ? "opacity-1" : "opacity-0"}`}
-          data-carousel-item
-        >
-          <Image
-            src={svg}
-            className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 "
-            width={0}
-            height={0}
-            alt="imagen 2"
-          />
-        </div>
+        {mainSliderArr.map((slide, index) => (
+          <div
+            key={index}
+            className={`duration-700 ease-in-out ${
+              currentSlide === index ? "opacity-1" : "opacity-0"
+            }`}
+            data-carousel-item
+          >
+            <Image
+              src={slide.img}
+              className="absolute block w-full  object-cover object-center  brightness-50"
+              quality={100}
+              priority={true}
+              width={1920}
+              height={1080}
+              alt={`imagen ${index + 1}`}
+            />
+            <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2  z-40  text-white flex flex-col items-center gap-8">
+              <h1 className="uppercase lg:text-4xl font-semibold tracking-widest">
+                nuevo shop online
+              </h1>
+              <Link href="/shop">
+                <button className=" text-white border-white border-2 px-6 py-2 uppercase hover:translate-y-[1px]  transition duration-300 hover:shadow-sm hover:shadow-white">
+                  {slide.btn}
+                </button>
+              </Link>
+            </div>
+          </div>
+        ))}
       </div>
 
       <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-        {[0, 1].map((index) => (
+        {mainSliderArr.map((_, index) => (
           <button
             key={index}
             type="button"
