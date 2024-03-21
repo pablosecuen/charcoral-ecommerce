@@ -1,13 +1,13 @@
 const FormularioContacto = () => {
   return (
-    <div className="w-full min-h-screen mx-auto  md:p-10 flex flex-col gap-10 ">
+    <div className="w-full my-20 mx-auto  md:p-10 flex flex-col gap-10 ">
       <h3 className="text-4xl uppercase tracking-wider text-blue-900 underline text-center font-semibold">
         ¿Tienes alguna pregunta?
       </h3>
       <span className="text-2xl tracking-wider  text-center ">
         ¡Déjanos un mensaje y el equipo se pondrá en contacto contigo lo antes posible!
       </span>
-      <form className="flex max-w-screen-lg gap-8 md:p-20 mx-auto w-full  justify-center">
+      <form className="flex max-w-screen-lg gap-8 md:pt-20 md:pr-20 md:pl-20  mx-auto w-full  justify-center">
         <div className="w-1/2">
           <div className="relative z-0 w-full mb-5 group border-2 rounded-lg border-blue-900 px-4">
             <input
