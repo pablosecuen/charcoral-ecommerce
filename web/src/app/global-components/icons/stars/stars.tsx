@@ -1,5 +1,4 @@
 import React from "react";
-import starts from "./stars";
 
 const Stars = () => {
   return (

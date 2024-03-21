@@ -16,7 +16,8 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         'briquetas': "url('../../public/assets/briquetas.png')",
-               'sponsor': "url('../../public/assets/separador1920.jpg')",
+        'sponsor': "url('../../public/assets/separador1920.jpg')",
+'sponsor2': "url('../../public/assets/Recurso22.png')",
       },
         keyframes: {
         fadeIn: {

@@ -6,7 +6,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-function ProductsCarousel() {
+function Relacionados({ categoria }: { categoria: string }) {
   const settings = {
     dots: false,
     infinite: true,
@@ -61,6 +61,10 @@ function ProductsCarousel() {
 
   return (
     <section className=" flex flex-col md:max-w-[90vw] max-w-[80dvw]  gap-10 md:pt-10 lg:max-w-[80vw] mx-auto ">
+      <h3 className="uppercase text-blue-800 py-4 text-3xl font-semibold">
+        Productos relacionados
+      </h3>
+      <hr className="border-2 border-blue-800 w-full" />
       <Slider {...settings}>
         {products?.map((product: any) => (
           <div key={product.id} className="w-[80vw] mx-auto overflow-hidden max-w-[280px]">
@@ -88,7 +92,7 @@ function ProductsCarousel() {
   );
 }
 
-export default ProductsCarousel;
+export default Relacionados;
 
 function PrevArrow(props: any) {
   const { className, onClick } = props;
