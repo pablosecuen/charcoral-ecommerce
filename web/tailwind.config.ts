@@ -17,7 +17,15 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         'briquetas': "url('../../public/assets/briquetas.png')",
         'sponsor': "url('../../public/assets/separador1920.jpg')",
-'sponsor2': "url('../../public/assets/Recurso22.png')",
+        'sponsor2': "url('../../public/assets/Recurso22.png')",
+        'nosotros': "url('../../public/assets/Recurso 1.webp')",
+        'sponsor3': "url('../../public/assets/Recurso 5.webp')",
+        'productos': "url('../../public/assets/Recurso 9.webp')",
+        'distribucion': "url('../../public/assets/Recurso 8.webp')",
+        'contacto': "url('../../public/assets/Recurso 7.webp')",
+
+                   'revendedores': "url('../../public/assets/Recurso 32.webp')",
+
       },
         keyframes: {
         fadeIn: {

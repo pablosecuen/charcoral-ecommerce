@@ -129,3 +129,27 @@ export const products = [
             description:"Pack sales especiadas"
     },             
 ]
+
+
+
+
+export const categoriaSliderAtt = [
+    { categoria: "CARBÓN", title: "CARBÓN LOS LEÑOS", img: tres, descripcion: "Nuestro carbón vegetal, es el mejor disponible en el mercado, casi no hace chispas y produce las calorías perfectas para cocinar el corte de su preferencia, con el sutil sabor de las brasas. Viene en formatos de 2, 5, 4, y 8 kgs." },
+    { categoria: "BRIQUETAS", title: "BRIQUETAS LOS LEÑOS", img: cinco, descripcion: "Nuestro carbón vegetal, es el mejor disponible en el mercado, casi no hace chispas y produce las calorías perfectas para cocinar el corte de su preferencia, con el sutil sabor de las brasas. Viene en formatos de 2, 5, 4, y 8 kgs." },
+    { categoria: "LEÑA", title: "LEÑA LOS LEÑOS", img: dos, descripcion: "Nuestro carbón vegetal, es el mejor disponible en el mercado, casi no hace chispas y produce las calorías perfectas para cocinar el corte de su preferencia, con el sutil sabor de las brasas. Viene en formatos de 2, 5, 4, y 8 kgs." },
+    { categoria:"SALES", title:"SALES LOS LEÑOS", img:doce, descripcion:"Nuestro carbón vegetal, es el mejor disponible en el mercado, casi no hace chispas y produce las calorías perfectas para cocinar el corte de su preferencia, con el sutil sabor de las brasas. Viene en formatos de 2, 5, 4, y 8 kgs."}
+]
+
+
+export const arraySupermercados = [
+    { img: "/assets/Recurso 19.webp", descripcion: "Con más de 120 sucursales en Buenos Aires y el interior del país se la cadena más grande de Argentina." },
+    { img: "/assets/Recurso 20.webp", descripcion: "Hipermercados de la cadena cencosud, se caracteriza por su linea premium." },
+    { img: "/assets/Recurso 21.webp", descripcion: "Cadena de supermercados de la ciudad de Rosario." },
+    { img: "/assets/Recurso 22.webp", descripcion: "Disco es una cadena argentina de supermercados, perteneciente al grupo chileno Cencosud desde 2004." },
+    { img: "/assets/Recurso 23.webp", descripcion: "Vea es líder gracias a su formato de precios bajos, cercanía y calidad en sus productos." },
+    { img: "/assets/Recurso 24.webp", descripcion: "Cadena de supermercados mayoristas con 20 sucursales en la zona centro y norte del país." },
+    { img: "/assets/Recurso 25.webp", descripcion: "Cadena de supermercados con origen en Rosario, cuenta con 8 sucursales en la zona sur de Santa Fe." },
+    { img: "/assets/Recurso 26.webp", descripcion: "Cadena de supermercados de la costa atlantica con más de 54 años de trayectoria." },
+    { img: "/assets/Recurso 27.webp", descripcion: "Cadena de supermercados formada a mediados del año 2001 en la provincia de Santa Fe." },
+    {img:"/assets/Recurso 28.webp", descripcion:"Cadena de supermercados formada a mediados del año 2001 en la provincia de Santa Fe."}
+]
