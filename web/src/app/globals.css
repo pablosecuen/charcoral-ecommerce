@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Akrobat";
+  src: url("/assets/fonts/AKROBAT-REGULAR.OTF") format("opentype");
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;
@@ -11,4 +16,8 @@
 html {
   padding: 0;
   margin: 0;
+}
+
+body {
+  font-family: "Akrobat";
 }

@@ -5,8 +5,6 @@ import Navbar from "./global-components/navbar/navbar";
 import Footer from "./global-components/footer/footer";
 import { Flowbite } from "flowbite-react";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
   title: "Carbon Los Leños",
   description: "Desarrollado por WAM!",
@@ -19,7 +17,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
         <Flowbite>
           <Navbar />
           {children}
