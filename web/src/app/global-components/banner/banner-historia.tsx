@@ -4,7 +4,7 @@ import logo from "@/../public/assets/remera-LEÑOS-removebg-preview.png";
 
 const BannerHistoria = () => {
   return (
-    <div className="container mx-auto max-w-[70%] md:my-20">
+    <div className="container mx-auto md:max-w-[70%] p-4 md:p-0  md:my-20">
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
         <div className="banner-item col-span-2 text-green-600 p-4 flex flex-col items-start justify-center gap-4">
           <h2 className="text-3xl md:text-4xl uppercase font-semibold tracking-widest text-start">

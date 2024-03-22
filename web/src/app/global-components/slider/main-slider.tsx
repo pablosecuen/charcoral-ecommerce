@@ -29,14 +29,14 @@ function MainSlider() {
         {mainSliderArr.map((slide, index) => (
           <div
             key={index}
-            className={`duration-700 ease-in-out ${
+            className={`duration-700 ease-in-out  ${
               currentSlide === index ? "opacity-1" : "opacity-0"
             }`}
             data-carousel-item
           >
             <Image
               src={slide.img}
-              className="absolute block w-full  object-cover object-center  brightness-50"
+              className="absolute block w-full h-full  object-cover object-center  brightness-50"
               quality={100}
               priority={true}
               width={1920}

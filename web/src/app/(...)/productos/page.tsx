@@ -4,11 +4,11 @@ import Link from "next/link";
 /* eslint-disable react/no-unescaped-entities */
 const Productos = () => {
   return (
-    <div className="w-full max-w-screen-2xl mx-auto min-h-screen  md:mt-16 animate-fadeIn">
+    <div className="w-full max-w-screen-2xl mx-auto min-h-screen mt-16 animate-fadeIn">
       <div className="w-full h-[30vh]  bg-productos bg-cover bg-center bg-no-repeat flex items-center justify-center">
         <h2 className="uppercase text-6xl text-white tracking-widest font-semibold">productos</h2>
       </div>
-      <div className="w-full grid md:grid-cols-2 p-4 md:p-20">
+      <div className="w-full grid md:grid-cols-2 p-4 md:p-20 border md:border-none">
         <div className="flex flex-col items-start md:p-10 gap-4">
           <h4 className="text-5xl mb-4 uppercase font-semibold">combustibles</h4>
           <span className="text-2xl">Carbón “Los Leños” XXL | 8Kg</span>
@@ -22,18 +22,18 @@ const Productos = () => {
           </p>
           <Link
             href="/shop"
-            className="px-4 py-2 border-2 border-blue-900 text-blue-900 rounded-2xl ml-auto"
+            className="px-4 py-2 border-2 border-blue-900 text-blue-900 rounded-2xl ml-auto mb-8 md:mb-0"
           >
             ver en tienda
           </Link>
         </div>
         <img
           src="/assets/Recurso 13.webp"
-          alt="charcoal producto picture with a black backgrounda  product sample"
+          alt="charcoal producto picture with a black backgrounda  product sample "
           className="w-full"
         />
       </div>
-      <div className="w-full grid md:grid-cols-2 p-4 md:p-20">
+      <div className="w-full grid md:grid-cols-2 p-4 md:p-20 border md:border-none">
         <img
           src="/assets/Recurso 14.webp"
           alt="charcoal producto picture with a black backgrounda  product sample"
@@ -58,7 +58,7 @@ const Productos = () => {
           </Link>
         </div>
       </div>
-      <div className="w-full grid md:grid-cols-2 p-4 md:p-20">
+      <div className="w-full grid md:grid-cols-2 p-4 md:p-20 border md:border-none">
         <div className="flex flex-col items-start md:p-10 gap-4">
           <h4 className="text-5xl mb-4 uppercase font-semibold">ACCESORIOS</h4>
           <span className="text-2xl">Kit Parrillero “Los Leños”</span>
@@ -71,7 +71,7 @@ const Productos = () => {
           </p>
           <Link
             href="/shop"
-            className="px-4 py-2 border-2 border-blue-900 text-blue-900 rounded-2xl ml-auto"
+            className="px-4 py-2 border-2 border-blue-900 text-blue-900 rounded-2xl ml-auto mb-8 md:mb-0"
           >
             ver en tienda
           </Link>
@@ -82,7 +82,7 @@ const Productos = () => {
           className="w-full"
         />
       </div>
-      <div className="w-full grid md:grid-cols-2 p-4 md:p-20">
+      <div className="w-full grid md:grid-cols-2 p-4 md:p-20 border md:border-none">
         <img
           src="/assets/Recurso 18.webp"
           alt="charcoal producto picture with a black backgrounda  product sample"

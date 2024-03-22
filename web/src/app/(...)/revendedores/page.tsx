@@ -11,17 +11,17 @@ const Revendedores = () => {
   };
 
   return (
-    <div className="w-full  mx-auto min-h-screen  md:mt-16 animate-fadeIn">
+    <div className="w-full  mx-auto min-h-screen  mt-16 animate-fadeIn">
       <div className="w-full h-[30vh]  bg-revendedores bg-cover max-w-screen-2xl mx-auto bg-center bg-no-repeat flex justify-center items-center">
-        <h2 className="uppercase text-6xl text-blue-900 tracking-widest font-semibold">
+        <h2 className="uppercase md:text-6xl text-4xl text-blue-900 tracking-widest font-semibold">
           Revendedores
         </h2>
       </div>
-      <h3 className="text-3xl uppercase tracking-wider text-blue-900 underline text-center font-semibold md:mt-20">
+      <h3 className="text-3xl uppercase tracking-wider text-blue-900 underline text-center font-semibold md:mt-20 mt-10">
         ¿Interesado en Colaborar o Adquirir Nuestros Productos?
       </h3>
 
-      <div className="grid w-full max-w-screen-lg mx-auto md:grid-cols-2 md:my-20 gap-4">
+      <div className="grid w-full max-w-screen-lg mx-auto md:grid-cols-2 md:my-20 gap-4 mt-10 p-4 md:p-0">
         <div className="flex flex-col gap-4">
           {" "}
           <div className="flex gap-4">

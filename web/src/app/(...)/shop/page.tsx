@@ -6,9 +6,10 @@ import Stars from "@/app/global-components/icons/stars/stars";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 const Shop = () => {
+  const filterRef = useRef<HTMLDivElement>(null);
   const [showFilters, setShowFilters] = useState(false);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [animationParent] = useAutoAnimate();
@@ -38,26 +39,42 @@ const Shop = () => {
       ? products.filter((product) => selectedCategories.includes(product.categoria))
       : products;
 
+  const handleClickOutside = (event: MouseEvent) => {
+    if (filterRef.current && !filterRef.current.contains(event.target as Node)) {
+      setShowFilters(false);
+    }
+  };
+
+  useEffect(() => {
+    // Añadir el evento de clic fuera del modal
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      // Remover el evento cuando el componente se desmonte
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen mt-2 relative">
       <BannerProductos />
-      <div className="max-w-screen-2xl mx-auto flex justify-end items-center text-black mt-20">
+      <div className="max-w-screen-2xl mx-auto flex justify-end items-center text-black mt-20 mb-10 md:mb-0 px-4 md:px-0">
         <hr className="border  border-black/40 w-full" />
-        <button onClick={toggleFilters} className="whitespace-nowrap ml-4">
+        <button onClick={toggleFilters} className="whitespace-nowrap ml-4 ">
           Mostrar Filtros
         </button>
       </div>
-      <div className="flex">
+      <div className="flex ">
         {" "}
         {showFilters && (
           <div
-            className={`w-1/4 h-screen mt-20  transition  duration-500 ${
+            ref={filterRef}
+            className={`w-1/2 md:1/4 h-screen mt-20  transition  duration-500 fixed top-0 left-0 z-50 bg-white shadow-xl shadow-black-30  ${
               showFilters ? "translate-x-0 animate-fadeIn" : "-translate-x-full opacity-0"
             }`}
           >
-            <h5 className="ml-4 text-xl font-semibold">CATEGORIAS</h5>
+            <h5 className="ml-4 text-xl font-semibold bg-white">CATEGORIAS</h5>
             {Array.from(new Set(products.map((product) => product.categoria))).map((categoria) => (
-              <div key={categoria} className="p-4 flex gap-4 items-center">
+              <div key={categoria} className="p-4 flex gap-4 items-center  ">
                 <input
                   type="checkbox"
                   className="rounded-full cursor-pointer"
@@ -70,7 +87,7 @@ const Shop = () => {
         )}
         <ul
           ref={animationParent}
-          className={`container max-w-screen-2xl mx-auto grid ${
+          className={`container max-w-screen-2xl mx-auto grid p-4  md:p-0${
             showFilters ? "md:grid-cols-3" : "md:grid-cols-4"
           } gap-4 justify-center items-center h-full md:my-20`}
         >

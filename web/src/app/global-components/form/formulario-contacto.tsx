@@ -1,14 +1,14 @@
 const FormularioContacto = () => {
   return (
-    <div className="w-full my-20 mx-auto  md:p-10 flex flex-col gap-10 ">
+    <div className="w-full my-20 mx-auto  md:p-10 flex flex-col gap-10 p-4 ">
       <h3 className="text-4xl uppercase tracking-wider text-blue-900 underline text-center font-semibold">
         ¿Tienes alguna pregunta?
       </h3>
       <span className="text-2xl tracking-wider  text-center ">
         ¡Déjanos un mensaje y el equipo se pondrá en contacto contigo lo antes posible!
       </span>
-      <form className="flex max-w-screen-lg gap-8 md:pt-20 md:pr-20 md:pl-20  mx-auto w-full  justify-center">
-        <div className="w-1/2">
+      <form className="flex flex-col md:flex-row max-w-screen-lg gap-8 md:pt-20 md:pr-20 md:pl-20  mx-auto w-full  justify-center">
+        <div className="md:w-1/2">
           <div className="relative z-0 w-full mb-5 group border-2 rounded-lg border-blue-900 px-4">
             <input
               type="email"
@@ -131,12 +131,12 @@ const FormularioContacto = () => {
             </div>
           </div>
         </div>
-        <div className="w-1/2">
-          <div className="relative z-0 w-full mb-5 group h-full border-2 rounded-lg border-blue-900 ">
+        <div className="md:w-1/2">
+          <div className="relative z-0 w-full mb-5 group h-full  ">
             <textarea
               name="floating_mensaje"
               id="floating_mensaje"
-              className="block py-2.5 px-4  w-full h-full text-sm text-gray-900 bg-transparent border-0  border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+              className="block py-2.5 px-4  w-full h-full text-sm text-gray-900 bg-transparent border-2 rounded-lg border-blue-900 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
               placeholder="deja tu mensaje..."
               required
             />

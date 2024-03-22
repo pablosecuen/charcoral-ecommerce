@@ -3,7 +3,7 @@ import React from "react";
 
 const BannerProductos = () => {
   return (
-    <div className="w-full h-[30vh] relative flex justify-center items-center border md:mt-28">
+    <div className="w-full md:h-[30vh] relative flex justify-center items-center  mt-20 md:mt-28 ">
       <img src="/assets/14.png" alt="banner" className="object-cover brightness-75 " />
       <div className=" text-white  z-10 absolute text-center flex flex-col gap-4">
         {" "}
