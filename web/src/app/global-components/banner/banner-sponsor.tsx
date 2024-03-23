@@ -2,7 +2,7 @@
 
 const BannerSponsor = () => {
   return (
-    <div className="w-full mx-auto flex justify-center bg-sponsor3 bg-cover bg-no-repeat bg-center items-center h-[50vh] md:h-[30vh]  overflow-hidden relative">
+    <div className="w-full mx-auto flex justify-center bg-sponsor3 bg-fil bg-no-repeat bg-center items-center h-[50vh] md:h-[30vh]  overflow-hidden relative">
       {/*      <img
         src="/assets/separador1920.jpg"
         alt="logo-asador"
