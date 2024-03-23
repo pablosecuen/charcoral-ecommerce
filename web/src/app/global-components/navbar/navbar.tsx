@@ -3,12 +3,14 @@
 import Link from "next/link";
 import SocialMediaDisplay from "../icons/social-media-icons/social-media-display";
 import { useState } from "react";
+import Cart from "../cart/Cart";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
   return (
     <nav className="bg-white dark:bg-blue-900 fixed w-full z-50 top-0 start-0 border-b border-blue-200 dark:border-blue-600">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -17,6 +19,9 @@ const Navbar = () => {
         </Link>
         <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <SocialMediaDisplay />
+
+          <Cart />
+
           <button
             onClick={toggleMenu}
             data-collapse-toggle="navbar-sticky"
@@ -53,7 +58,7 @@ const Navbar = () => {
             <li>
               <a
                 href="/"
-                className="block py-2 px-3 font-semibold bg-blue-900 rounded md:bg-transparent uppercase tracking-widest md:text-blue-900 md:p-0 md:dark:text-blue-500"
+                className="block py-2 px-3 text-blue-900 font-semibold  rounded hover:bg-blue-100 uppercase tracking-widest md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:font-semibold dark:hover:bg-blue-700 dark:hover:font-semibold md:dark:hover:bg-transparent dark:border-blue-700"
                 aria-current="page"
               >
                 Inicio

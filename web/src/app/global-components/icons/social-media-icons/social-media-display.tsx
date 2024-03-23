@@ -12,7 +12,7 @@ interface SocialMediaDisplayProps {
 
 const SocialMediaDisplay: React.FC<SocialMediaDisplayProps> = ({ size, strokeColor }) => {
   return (
-    <div className="flex z-50">
+    <div className="md:flex z-50 hidden">
       <Link
         href="https://www.facebook.com/p/Carbon-Los-Le%C3%B1os-100063543433365/"
         target="_blank"

@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+const {nextui} = require("@nextui-org/react");
 
 const config: Config = {
   content: [
@@ -8,6 +9,7 @@ const config: Config = {
    "./node_modules/flowbite-react/lib/**/*.js",
          "./pages/**/*.{ts,tsx}",
     "./public/**/*.html",
+      "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
   ],
   theme: {
     extend: {
@@ -23,7 +25,6 @@ const config: Config = {
         'productos': "url('../../public/assets/Recurso 9.webp')",
         'distribucion': "url('../../public/assets/Recurso 8.webp')",
         'contacto': "url('../../public/assets/Recurso 7.webp')",
-
                    'revendedores': "url('../../public/assets/Recurso 32.webp')",
 
       },
@@ -74,8 +75,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [
-    require("flowbite/plugin")
-  ],
+  plugins: [ require('flowbite/plugin' ), nextui()],
 };
 export default config;
