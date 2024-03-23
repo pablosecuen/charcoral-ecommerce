@@ -17,7 +17,7 @@ const Footer = () => {
     <>
       {" "}
       <BannerSponsor />
-      <footer className=" dark:bg-gray-900 bg-sponsor2 bg-cover bg-center bg-no-repeat">
+      <footer className=" dark:bg-gray-900 bg-sponsor2 bg-fill bg-center bg-no-repeat ">
         <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8 relative z-10 border-t border-white bg-footer bg-cover ">
           <div className="md:flex md:justify-between z-20">
             <div className="mb-6 md:mb-0">
