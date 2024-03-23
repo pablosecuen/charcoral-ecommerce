@@ -25,7 +25,7 @@ const Footer = () => {
                 <img src="/assets/logo/Recurso 18.png" className="h-12 me-3" alt="Logo" />
               </Link>
             </div>
-            <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+            <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3 md:mb-10">
               <div>
                 <h2 className="mb-2 text-md font-semibold text-white uppercase dark:text-white">
                   Mapa del sitio
@@ -36,12 +36,12 @@ const Footer = () => {
                       Inicio
                     </Link>
                   </li>
-                  <li>
+                  <li className="mb-2">
                     <Link href="/distribucion" className="hover:underline">
                       Distribucion
                     </Link>
                   </li>
-                  <li>
+                  <li className="mb-2">
                     <Link href="/contacto" className="hover:underline">
                       Contacto
                     </Link>
@@ -93,13 +93,13 @@ const Footer = () => {
           <div className="sm:flex sm:items-center sm:justify-between  z-20">
             <span className="text-sm text-white sm:text-center dark:text-white">
               © {currentYear}
-              <a href="/" className="hover:underline">
+              <a href="/" className="hover:underline ml-2">
                 Los Leños
               </a>
               . Todos los derechos reservados.
             </span>
             <div className="flex mt-4 items-center sm:justify-center sm:mt-0">
-              <Link href="/wamcreativo.com" target="_blank" rel="noreferrer noopener">
+              <Link href="https://wamcreativo.com/" target="_blank" rel="noreferrer noopener">
                 {" "}
                 <h3 className="text-sm text-white sm:text-center dark:text-white">
                   Diseñado y desarrollado por WAM! creativo
