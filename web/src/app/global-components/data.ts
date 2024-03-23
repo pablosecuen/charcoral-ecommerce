@@ -16,7 +16,8 @@ import Navbar from './navbar/navbar';
 
 
 export const mainSliderArr = [
-    {title:"nuevo shopp online", btn:"ingresar", img: bbq}
+    { title: "nuevo shopp online", btn: "ingresar", img: bbq },
+      {title:"nuevo shopp online", btn:"ingresar", img: bbq}
 ]
 
 
@@ -162,4 +163,5 @@ export const navbarUl = [
     { href: "/contacto", title: "Contacto" },
     {href:"/revendedores", title:"Revendedores"},
     { href: "/shop", title: "E-shop" },
+    { href: "/tracking", title: "Tracking" },
 ]
