@@ -63,13 +63,13 @@ function ProductsCarousel() {
     <section className=" flex flex-col md:max-w-[90vw] max-w-[80dvw]  gap-10 md:pt-10 lg:max-w-[80vw] mx-auto ">
       <Slider {...settings}>
         {products?.map((product: any) => (
-          <div key={product.id} className="w-[80vw] mx-auto overflow-hidden max-w-[280px]">
+          <div key={product.id} className="w-[80vw] mx-auto overflow-hidden max-w-[280px] ">
             <Link className=" h-full overflow-x-hidden  " href={`/shop/${product.title}`}>
-              <article className="rounded-md w-full  h-full  px-2 md:px-0 pb-6">
+              <article className="rounded-md w-full  h-full  px-2 md:px-0 pb-6 md:ml-1">
                 <Image
                   src={product.img}
                   alt={product.title}
-                  className="h-96 mb-1 object-cover w-full"
+                  className="h-80 object-contain mb-1  w-full"
                   priority={true}
                   height={0}
                   width={150}
