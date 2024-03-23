@@ -44,7 +44,7 @@ function MainSlider() {
               alt={`imagen ${index + 1}`}
             />
             <div className="absolute -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2  z-40  text-white flex flex-col items-center gap-8">
-              <h1 className="uppercase lg:text-4xl font-semibold tracking-widest">
+              <h1 className="uppercase lg:text-7xl text-4xl font-semibold tracking-widest whitespace-nowrap">
                 nuevo shop online
               </h1>
               <Link href="/shop">
