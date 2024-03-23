@@ -12,6 +12,7 @@ import once from "@/../public/assets/productos/11.png"
 import doce from "@/../public/assets/productos/12.png"
 
 import bbq from "@/../public/assets/bbq3.jpg"
+import Navbar from './navbar/navbar';
 
 
 export const mainSliderArr = [
@@ -152,4 +153,13 @@ export const arraySupermercados = [
     { img: "/assets/Recurso 26.webp", descripcion: "Cadena de supermercados de la costa atlantica con más de 54 años de trayectoria." },
     { img: "/assets/Recurso 27.webp", descripcion: "Cadena de supermercados formada a mediados del año 2001 en la provincia de Santa Fe." },
     {img:"/assets/Recurso 28.webp", descripcion:"Cadena de supermercados formada a mediados del año 2001 en la provincia de Santa Fe."}
+]
+
+export const navbarUl = [
+    { href: "/", title: "Inicio" },
+    { href: "/productos", title: "Productos" },
+    { href: "/distribucion", title: "Distribucion" },
+    { href: "/contacto", title: "Contacto" },
+    {href:"/revendedores", title:"Revendedores"},
+    { href: "/shop", title: "E-shop" },
 ]

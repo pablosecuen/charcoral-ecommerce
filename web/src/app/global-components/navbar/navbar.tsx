@@ -4,6 +4,7 @@ import Link from "next/link";
 import SocialMediaDisplay from "../icons/social-media-icons/social-media-display";
 import { useState } from "react";
 import Cart from "../cart/Cart";
+import { navbarUl } from "../data";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -17,7 +18,7 @@ const Navbar = () => {
         <Link href="/" className="flex items-center space-x-3 rtl:space-x-reverse">
           <img src="/assets/logo/Recurso 19.png" className="h-8" alt="Flowbite Logo" />
         </Link>
-        <div className="flex items-center md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+        <div className="flex items-center gap-4 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <SocialMediaDisplay />
 
           <Cart />
@@ -48,6 +49,7 @@ const Navbar = () => {
             </svg>
           </button>
         </div>
+
         <div
           className={`items-center justify-between w-full md:flex md:w-auto md:order-1 transition duration-500 overflow-hidden ${
             menuOpen ? "opacity-1 h-full" : "opacity-0 h-0 md:opacity-100 md:h-auto"
@@ -55,55 +57,17 @@ const Navbar = () => {
           id="navbar-sticky"
         >
           <ul className="flex flex-col text-sm p-4 md:p-0 mt-4 font-medium border border-blue-100 rounded-lg bg-blue-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-blue-800 md:dark:bg-blue-900 dark:border-blue-700">
-            <li>
-              <a
-                href="/"
-                className="block py-2 px-3 text-blue-900 font-semibold  rounded hover:bg-blue-100 uppercase tracking-widest md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:font-semibold dark:hover:bg-blue-700 dark:hover:font-semibold md:dark:hover:bg-transparent dark:border-blue-700"
-                aria-current="page"
-              >
-                Inicio
-              </a>
-            </li>
-            <li>
-              <a
-                href="/productos"
-                className="block py-2 px-3 text-blue-900 font-semibold  rounded hover:bg-blue-100 uppercase tracking-widest md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:font-semibold dark:hover:bg-blue-700 dark:hover:font-semibold md:dark:hover:bg-transparent dark:border-blue-700"
-              >
-                Productos
-              </a>
-            </li>
-            <li>
-              <a
-                href="/distribucion"
-                className="block py-2 px-3 text-blue-900 font-semibold  rounded hover:bg-blue-100 uppercase tracking-widest md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:font-semibold dark:hover:bg-blue-700 dark:hover:font-semibold md:dark:hover:bg-transparent dark:border-blue-700"
-              >
-                Distribucion
-              </a>
-            </li>
-            <li>
-              <a
-                href="/contacto"
-                className="block py-2 px-3 text-blue-900 font-semibold  rounded hover:bg-blue-100 uppercase tracking-widest md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:font-semibold dark:hover:bg-blue-700 dark:hover:font-semibold md:dark:hover:bg-transparent dark:border-blue-700"
-              >
-                Contacto
-              </a>
-            </li>
-            <li>
-              <a
-                href="/revendedores"
-                className="block py-2 px-3 text-blue-900 font-semibold  rounded hover:bg-blue-100 uppercase tracking-widest md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:font-semibold dark:hover:bg-blue-700 dark:hover:font-semibold md:dark:hover:bg-transparent dark:border-blue-700"
-              >
-                Revendedores
-              </a>
-            </li>
-            <li>
-              <a
-                href="/shop"
-                className="block py-2 px-3 text-blue-900 font-semibold  rounded hover:bg-blue-100 uppercase tracking-widest md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:font-semibold dark:hover:bg-blue-700 dark:hover:font-semibold md:dark:hover:bg-transparent dark:border-blue-700"
-              >
-                E-shop
-              </a>
-            </li>
+            {navbarUl.map((item) => (
+              <li key={item.title}>
+                <a
+                  href={item.href}
+                  className="block py-2 px-3 text-blue-900 font-semibold rounded hover:bg-blue-100 uppercase tracking-widest md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:font-semibold dark:hover:bg-blue-700 dark:hover:font-semibold md:dark:hover:bg-transparent dark:border-blue-700"
+                  aria-current="page"
+                >
+                  {item.title}
+                </a>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
