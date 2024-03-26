@@ -27,7 +27,7 @@ function CategoriaSlider() {
   };
 
   const staticContent = (
-    <div className="flex items-center justify-between animate-fadeIn max-w-screen-xl mx-auto mb-10">
+    <div className="flex flex-col gap-4 md:gap-0 md:flex-row items-center justify-between animate-fadeIn md:max-w-screen-xl max-w-screen overflow-hidden mx-auto mb-10">
       <h3 className="text-5xl text-blue-900 uppercase tracking-widest font-semibold">PRODUCTOS</h3>
       <div className="flex gap-3">
         {categoriaSliderAtt.map((categoria, index) => (
@@ -48,28 +48,31 @@ function CategoriaSlider() {
   );
 
   const dynamicContent = (
-    <div className="flex items-center animate-fadeIn max-w-screen-xl mx-auto">
+    <div className="flex items-center animate-fadeIn md:max-w-screen-xl max-w-scren overflow-hidden mx-auto">
       {categoriaSliderAtt.map((slide, index) => (
         <div
           key={slide.title}
-          className={`flex items-center border-[8px] border-blue-900  p-16 h-[500px] ${
+          className={`flex flex-col md:flex-row  items-center border-[8px] border-blue-900  md:p-16 md:h-[500px] p-4 animate-fadeIn ${
             index === currentSlide ? "" : "hidden"
           }`}
         >
-          <Link href={`/shop`} className="w-full">
-            <Image
-              src={slide.img}
-              alt={slide.title}
-              width={0}
-              height={0}
-              className="hover:scale-110 transition duration-300"
-            />
+          <Link href={`/shop`} className="w-full  items-center flex justify-center h-96">
+            <div className="w-full ">
+              {" "}
+              <Image
+                src={slide.img}
+                alt={slide.title}
+                width={0}
+                height={0}
+                className="hover:scale-110 transition duration-300 mx-auto  object-cover"
+              />
+            </div>
           </Link>
-          <div className="flex flex-col items-start justify-center p-20">
-            <h3 className="underline text-blue-900 text-4xl font-semibold uppercase  pb-10">
+          <div className="flex flex-col items-start justify-center md:p-20">
+            <h3 className="underline text-blue-900 md:text-4xl text-2xl font-semibold uppercase  pb-10">
               {slide.title}
             </h3>
-            <p className="text-blue-900 mb-8 text-xl ">{slide.descripcion}</p>
+            <p className="text-blue-900 mb-8 md:text-xl ">{slide.descripcion}</p>
 
             <Link
               href={`/shop`}
@@ -87,31 +90,15 @@ function CategoriaSlider() {
   return (
     <div
       id="default-carousel"
-      className="relative w-full transition duration-500 animate-fadeIn h-screen p-20"
+      className="relative w-full transition duration-500 animate-fadeIn min-h-screen md:p-20 p-2"
       data-carousel="slide"
     >
       {staticContent}
       {dynamicContent}
 
-      {/*       <div className="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
-        {categoriaSliderAtt.map((_, index) => (
-          <button
-            key={index}
-            type="button"
-            className={`w-3 h-3 rounded-full ${
-              index === currentSlide ? "bg-blue-500" : "bg-gray-300"
-            }`}
-            aria-current={index === currentSlide ? "true" : "false"}
-            aria-label={`Slide ${index + 1}`}
-            onClick={() => handleSlideIndicator(index)}
-            data-carousel-slide-to={index}
-          />
-        ))}
-      </div> */}
-
       <button
         type="button"
-        className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
+        className="absolute hideen top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
         data-carousel-prev
         onClick={handlePrevSlide}
       >

@@ -39,7 +39,7 @@ const Nosotros = () => {
             <img
               src="/assets/Recurso 2.webp"
               alt="a logo variation for los lenos with fire like letters"
-              className=""
+              className="  "
             />
           </div>
         </div>

@@ -3,7 +3,7 @@
 const BannerCalidad = () => {
   return (
     <div className="min-h-screen bg-[#dbe2e8] w-full p-4 md:p-20">
-      <div className="flex flex-col w-full bg-white rounded-2xl md:p-28 gap-8">
+      <div className="flex flex-col w-full bg-white rounded-2xl md:p-28 gap-8 p-4">
         <div className="flex items-center justify-between">
           <h4 className="uppercase font-semibold text-2xl lg:text-5xl 2xl:text-7xl">
             LA MEJOR CALIDAD
@@ -12,14 +12,14 @@ const BannerCalidad = () => {
         </div>
         <hr className="w-full border border-blue-900/40" />
         <div>
-          <p className=" text-xl lg:text-2xl">
+          <p className=" text-xl lg:text-2xl  md:p-0">
             En "Carbón los Leños", nos enorgullecemos de producir un carbón de la más alta calidad,
             donde cada pieza es meticulosamente seleccionada para asegurar el tamaño perfecto.
           </p>
         </div>
         <hr className="w-full border border-blue-900/40" />
-        <div className="flex items-center">
-          <div className="flex flex-col  gap-8 w-10/12 mx-auto">
+        <div className="flex flex-col md:flex-row items-center md:gap-8">
+          <div className="flex flex-col  gap-8 md:w-10/12  mx-auto md:text-lg">
             {" "}
             <p>
               Nuestro carbón se caracteriza por su facilidad para encender y mantener la llama,
@@ -36,7 +36,11 @@ const BannerCalidad = () => {
               de tiempo, sino también una experiencia culinaria inigualable.{" "}
             </p>
           </div>
-          <img src="/assets/Recurso 3.webp" alt="black charcoal picture" />
+          <img
+            src="/assets/Recurso 3.webp"
+            alt="black charcoal picture"
+            className="py-8 md:py-0 md:p-0 w-48 lg:w-64 2xl:w-96 2xl:p-4"
+          />
         </div>
       </div>
     </div>

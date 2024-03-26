@@ -6,7 +6,7 @@ function MainSlider() {
   return (
     <div
       id="default-carousel"
-      className="relative w-full transition duration-500 animate-fadeIn mt-14"
+      className="relative w-full transition duration-500 animate-fadeIn mt-14 "
       data-carousel="slide"
     >
       <div className="relative h-[40vh] md:h-screen overflow-hidden ">
