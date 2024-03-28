@@ -92,19 +92,17 @@ const Shop = () => {
               key={product.id}
               className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 drop-shadow-md shadow-black/30 hover:-translate-y-[3px] hover:drop-shadow-xl hover:shadow-black/80 transition duration-300"
             >
-              <Link href="#" className=" ">
-                <Image
-                  className="p-8 h-96 w-full rounded-t-lg object-contain "
-                  src={product.img}
-                  alt="product image"
-                />
-              </Link>
+              <Image
+                className="p-8 h-96 w-full rounded-t-lg object-contain "
+                src={product.img}
+                alt="product image"
+              />
+
               <div className="px-5 pb-5">
-                <Link href="#">
-                  <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
-                    {product.title}
-                  </h5>
-                </Link>
+                <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
+                  {product.title}
+                </h5>
+
                 <div className="flex items-center mt-2.5 mb-5">
                   <Stars />
                   <span className="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3">
@@ -116,9 +114,11 @@ const Shop = () => {
                     $ {product.price}
                   </span>
                 </div>
-                <button className="text-white w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-500 hover:translate-y-[2px]">
-                  Agregar al carrito
-                </button>
+                <Link href={`/shop/${product.title}`} className=" ">
+                  <button className="text-white w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-500 hover:translate-y-[2px]">
+                    Ver mas
+                  </button>
+                </Link>
               </div>
             </li>
           ))}
@@ -167,13 +167,12 @@ const Shop = () => {
               key={product.id}
               className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 drop-shadow-md shadow-black/30 hover:-translate-y-[3px] hover:drop-shadow-xl hover:shadow-black/80 transition duration-300"
             >
-              <Link href="#" className=" ">
-                <Image
-                  className="p-8 h-96 w-full rounded-t-lg object-contain "
-                  src={product.img}
-                  alt="product image"
-                />
-              </Link>
+              <Image
+                className="p-8 h-96 w-full rounded-t-lg object-contain "
+                src={product.img}
+                alt="product image"
+              />
+
               <div className="px-5 pb-5">
                 <Link href="#">
                   <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
@@ -191,9 +190,11 @@ const Shop = () => {
                     $ {product.price}
                   </span>
                 </div>
-                <button className="text-white w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-500 hover:translate-y-[2px]">
-                  Agregar al carrito
-                </button>
+                <Link href={`/shop/${product.title}`} className=" ">
+                  <button className="text-white w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-500 hover:translate-y-[2px]">
+                    Ver mas
+                  </button>
+                </Link>
               </div>
             </li>
           ))}

@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "./global-components/navbar/navbar";
 import Footer from "./global-components/footer/footer";
 import MainProvider from "./providers/main-provider";
+import { Toaster } from "sonner";
 
 export const metadata: Metadata = {
   title: "Carbon Los Leños",
@@ -17,6 +18,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <Toaster position="top-center" />
         <MainProvider>
           <Navbar />
           {children}

@@ -14,11 +14,12 @@ import EditItemQuantityButton from "./edit-item-quantity-button";
 import Link from "next/link";
 import DeleteItemButton from "./delete-item-button";
 import Image from "next/image";
-import { Toaster } from "sonner";
+
 import { useCart } from "@/app/providers/cart-provider";
 import OpenCart from "./Open-cart";
+import { toast } from "sonner";
 
-export default function App() {
+export default function Cart() {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
   const {
     state: { cart },
@@ -26,8 +27,16 @@ export default function App() {
     calculateTotal,
   } = useCart();
 
+  console.log(cart);
+
   const deleteItem = (itemId: string) => {
-    dispatch({ type: "DELETE_ITEM", payload: itemId });
+    try {
+      dispatch({ type: "DELETE_ITEM", payload: itemId });
+      toast.success("Producto eliminado del carrito");
+    } catch (error) {
+      console.error("Error al eliminar el producto del carrito:", error);
+      toast.error("Error al eliminar el producto del carrito");
+    }
   };
 
   return (
@@ -70,7 +79,6 @@ export default function App() {
         <ModalContent>
           {(onClose) => (
             <>
-              <Toaster position="top-center" />
               <ModalHeader className="flex flex-col gap-1 mt-4 ml-4">Carrito</ModalHeader>
               <ModalBody>
                 {!cart || cart.length === 0 ? (
@@ -82,7 +90,7 @@ export default function App() {
                   <div className="flex h-full flex-col justify-between overflow-hidden p-1">
                     <ul className="flex-grow overflow-auto py-4 max-h-[60vh]">
                       {cart?.map((item: any, i: any) => {
-                        const image = item.imagen;
+                        const image = item.img;
                         return (
                           <li
                             key={i}
@@ -93,7 +101,7 @@ export default function App() {
                                 <DeleteItemButton item={item} onDelete={deleteItem} />
                               </div>
                               <Link
-                                href={`/tienda/${item.modelo}`}
+                                href={`/shop/${item.title}`}
                                 onClick={onClose}
                                 className="z-30 flex flex-row space-x-4"
                               >
@@ -102,20 +110,20 @@ export default function App() {
                                     className="h-full w-full object-contain"
                                     width={64}
                                     height={64}
-                                    alt={item.modelo}
-                                    src={item.img}
+                                    alt={item.title}
+                                    src={image}
                                   />
                                 </div>
 
                                 <div className="flex flex-1 flex-col text-base ">
-                                  <span className="leading-tight">{item.modelo}</span>
+                                  <span className="leading-tight">{item.title}</span>
                                   <span className="leading-tight opacity-60 text-sm ">
-                                    Detalles: {item.otrosDetalles}
+                                    Detalles: {item.description}
                                   </span>
                                 </div>
                               </Link>
                               <div className="flex h-16 flex-col justify-between">
-                                <div className="text-center ">${item.precio}</div>
+                                <div className="text-center ">${item.price}</div>
                                 <div className="ml-auto flex h-9 flex-row items-center rounded-full border border-neutral-200 dark:border-neutral-700">
                                   <EditItemQuantityButton item={item} type="minus" />
                                   <p className="w-6 text-center">

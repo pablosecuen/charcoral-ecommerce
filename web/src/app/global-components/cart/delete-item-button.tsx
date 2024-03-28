@@ -14,14 +14,7 @@ export default function DeleteItemButton({
   const [isPending, startTransition] = useTransition();
 
   const handleDeleteClick = async () => {
-    startTransition(async () => {
-      try {
-        // Llamar a la función onDelete del padre pasándole el ID del producto
-        onDelete(item.id);
-      } catch (error) {
-        console.error("Error al eliminar el producto al carrito:", error);
-      }
-    });
+    await onDelete(item.id);
   };
 
   return (

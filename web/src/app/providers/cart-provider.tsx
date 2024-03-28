@@ -1,5 +1,5 @@
 "use client";
-import React, { createContext, useContext, useEffect, useMemo, useReducer } from "react";
+import React, { createContext, useContext, useEffect, useMemo, useReducer, useState } from "react";
 import { toast } from "sonner";
 
 interface CartState {
@@ -10,43 +10,54 @@ type CartAction =
   | { type: "ADD_TO_CART"; payload: any }
   | { type: "DELETE_ITEM"; payload: string }
   | { type: "CLEAR_CART" }
-  | { type: "UPDATE_QUANTITY"; payload: { productId: string; quantity: number } };
+  | { type: "UPDATE_QUANTITY"; payload: { productId: string; quantity: number } }
+  | { type: "SET_INITIAL_CART"; payload: any };
 
 const initialCartState: CartState = {
-  cart: [],
+  cart: JSON.parse(localStorage.getItem("Cart") || "[]"),
 };
 
 const cartReducer = (state: CartState, action: CartAction): CartState => {
   switch (action.type) {
     case "ADD_TO_CART":
-      const existingProductIndex = state.cart.findIndex((item) => item.id === action.payload.id);
-      if (existingProductIndex !== -1) {
-        const updatedCart = state.cart.map((item, index) =>
-          index === existingProductIndex ? { ...item, quantity: (item.quantity || 0) + 1 } : item
-        );
-        toast.success("Sumada 1 unidad al carrito");
-        return { ...state, cart: updatedCart };
+      const existingCartAdd = [...state.cart];
+      const existingProductIndexAdd = existingCartAdd.findIndex(
+        (item: any) => item.id === action.payload.id
+      );
+      if (existingProductIndexAdd !== -1) {
+        toast.error("Producto ya se encuentra en el carrito");
+        return state;
       } else {
+        const updatedCartAdd = [...existingCartAdd, action.payload];
         toast.success("Producto agregado al carrito");
-        return { ...state, cart: [...state.cart, { ...action.payload, quantity: 1 }] };
+        return { ...state, cart: updatedCartAdd };
       }
+
     case "DELETE_ITEM":
-      const updatedCart = state.cart.filter((item) => item.id !== action.payload);
+      const updatedCartAfterDelete = state.cart.filter((item) => item.id !== action.payload);
       toast.success("Producto eliminado del carrito");
-      return { ...state, cart: updatedCart };
+      return { ...state, cart: updatedCartAfterDelete };
+
     case "CLEAR_CART":
       toast.success("Carrito restaurado");
+      localStorage.removeItem("Cart");
       return { ...state, cart: [] };
+
     case "UPDATE_QUANTITY":
       const updatedCartQuantity = state.cart.map((item) =>
         item.id === action.payload.productId ? { ...item, quantity: action.payload.quantity } : item
       );
+      toast.success("Cantidad actualizada");
+      localStorage.setItem("Cart", JSON.stringify(updatedCartQuantity));
       return { ...state, cart: updatedCartQuantity };
+
+    case "SET_INITIAL_CART":
+      return { ...state, cart: action.payload };
+
     default:
       return state;
   }
 };
-
 interface CartContextType {
   state: CartState;
   dispatch: React.Dispatch<CartAction>;
@@ -58,19 +69,22 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [state, dispatch] = useReducer(cartReducer, initialCartState);
 
+
   useEffect(() => {
     const storedCartString = localStorage.getItem("Cart");
-    let storedCart = storedCartString ? JSON.parse(storedCartString) : [];
-    if (storedCart.length === 0) {
-      localStorage.setItem("Cart", JSON.stringify(storedCart));
-    } else {
-      dispatch({ type: "ADD_TO_CART", payload: storedCart });
+    if (storedCartString) {
+      const parsedCart = JSON.parse(storedCartString);
+      dispatch({ type: "SET_INITIAL_CART", payload: parsedCart });
     }
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem("Cart", JSON.stringify(state.cart));
+  }, [state.cart]);
+
   const calculateTotal = useMemo(() => {
     return state.cart.reduce(
-      (total, product) => total + product.precio * (product.quantity ?? 1),
+      (total, product) => total + product.price * (product.quantity ?? 1),
       0
     );
   }, [state.cart]);

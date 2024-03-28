@@ -1,13 +1,16 @@
 "use client";
-import React from "react";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { products } from "@/app/global-components/data";
 import Image from "next/image";
 import Stars from "@/app/global-components/icons/stars/stars";
 import Relacionados from "@/app/global-components/carousel/relacionados-carousel";
 import BannerRecetas from "@/app/global-components/banner/banner-recetas";
+import { useCart } from "@/app/providers/cart-provider";
 
 const ProductDetail = ({ params }: { params: { title: string } }) => {
+  const { dispatch } = useCart();
+  const [quantity, setQuantity] = useState(1);
+
   const decodedTitle = params.title ? decodeURIComponent(params.title as string) : "";
 
   // Buscamos el producto correspondiente en la lista de productos
@@ -16,6 +19,24 @@ const ProductDetail = ({ params }: { params: { title: string } }) => {
   if (!product) {
     return <div className="my-48 min-h-screen w-full">Producto no encontrado</div>;
   }
+
+  const increaseQuantity = () => {
+    setQuantity((prevQuantity) => prevQuantity + 1);
+  };
+
+  const decreaseQuantity = () => {
+    if (quantity > 0) {
+      setQuantity((prevQuantity) => prevQuantity - 1);
+    }
+  };
+
+  const addToCart = () => {
+    const productToAdd = {
+      ...product,
+      quantity: quantity,
+    };
+    dispatch({ type: "ADD_TO_CART", payload: productToAdd });
+  };
 
   return (
     <>
@@ -77,7 +98,7 @@ const ProductDetail = ({ params }: { params: { title: string } }) => {
             <div className="w-full mx-auto  flex flex-col items-center ">
               <span>Seleccione la cantidad</span>
               <div className="flex items-center border">
-                <span className="px-8 ">
+                <span className="px-8 " onClick={decreaseQuantity}>
                   <svg
                     width="30px"
                     height="30px"
@@ -86,26 +107,22 @@ const ProductDetail = ({ params }: { params: { title: string } }) => {
                     className="hover:scale-110 cursor-pointer transition duration-300"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g
-                      id="SVGRepo_tracerCarrier"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></g>
+                    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
                     <g id="SVGRepo_iconCarrier">
                       {" "}
                       <path
                         d="M6 9L12 15L18 9"
                         stroke="#000000"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       ></path>{" "}
                     </g>
                   </svg>
                 </span>
-                <span className="px-8 ">10</span>
-                <span className="px-8 ">
+                <span className="px-8 ">{quantity}</span>
+                <span className="px-8 " onClick={increaseQuantity}>
                   <svg
                     width="30px"
                     height="30px"
@@ -114,27 +131,26 @@ const ProductDetail = ({ params }: { params: { title: string } }) => {
                     className="hover:scale-110 cursor-pointer transition duration-300"
                     xmlns="http://www.w3.org/2000/svg"
                   >
-                    <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-                    <g
-                      id="SVGRepo_tracerCarrier"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                    ></g>
+                    <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
+                    <g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g>
                     <g id="SVGRepo_iconCarrier">
                       {" "}
                       <path
                         d="M6 15L12 9L18 15"
                         stroke="#000000"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       ></path>{" "}
                     </g>
                   </svg>
                 </span>
               </div>
             </div>
-            <button className="text-white w-10/12 mx-auto bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-500 hover:translate-y-[2px]">
+            <button
+              onClick={addToCart}
+              className="text-white w-10/12 mx-auto bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 transition duration-500 hover:translate-y-[2px]"
+            >
               Agregar al carrito
             </button>
             <hr className="w-10/12 mx-auto border" />
